@@ -1,0 +1,87 @@
+Creating Dataframes:
+
+Method 1:An empty dataframe
+
+import pandas as pd
+d=[]
+print(pd.DataFrame(d))
+df=pd.DataFrame()
+print(df)
+
+output:
+Empty DataFrame
+Columns: []
+Index: []
+Empty DataFrame
+Columns: []
+Index: []
+
+Method 2: Create a dataframe using List
+
+import pandas as pd
+df=["jahnavi","pavani","sanjana","ambika","nyshika","sireesha"]
+print(pd.DataFrame(df))
+
+output:
+          0
+0   jahnavi
+1    pavani
+2   sanjana
+3    ambika
+4   nyshika
+5  sireesha
+
+Method 3: Create Dataframe from dict of ndarray/lists
+
+import pandas as pd
+d={ "Names":["jahnavi","pavani","sanjana","ambika"],
+     "Classes":[5,6,7,8]}
+print(pd.DataFrame(d))
+
+output:
+       Names   Classes
+0    jahnavi            5
+1     pavani            6
+2    sanjana            7
+3    ambika            8
+
+Method 4: Create a indexes Dataframe using arrays
+
+import pandas as pd
+d={ "Names":["jahnavi","pavani","sanjana","ambika"],
+     "Classes":[5,6,7,8]}
+print(pd.DataFrame(d,index=["stu 1","stu 2","stu 3","stu 4"]))
+
+output:
+           Names  Classes
+stu 1  jahnavi            5
+stu 2   pavani            6
+stu 3  sanjana            7
+stu 4   ambika           8
+
+Method 5: Create Dataframe from list of dicts
+
+import pandas as pd
+d=[{"1":"jahnavi","2":"ambika","3":"sanjana"},{"4":"nyshika","5":"sireesha","6":"debarati"}]
+print(pd.DataFrame(d))
+
+output:
+         1        2          3         4           5           6
+0    jahnavi  ambika   sanjana       NaN         NaN         NaN
+1         NaN      NaN       NaN   nyshika   sireesha    debarati
+
+Method 6: Create Dataframe from Dicts of series
+
+import pandas as pd  
+df= {'Maths' : pd.Series([34,54,45,56], index =['ram', 'raju', 'shankar', 'aravind']),  
+   'Physics' : pd.Series([53,44,60,36], index =['ram', 'raju', 'shankar', 'aravind'])}
+print("Marks:")
+print(pd.DataFrame(df))  
+
+output:
+Marks:
+            Maths  Physics
+ram            34       53
+raju            54       44
+shankar     45       60
+aravind     56       36
