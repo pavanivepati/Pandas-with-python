@@ -1,0 +1,103 @@
+#Write a Pandas program to display the default index and set a column as an Index in a given dataframe.
+
+import pandas as pd
+d=pd.DataFrame({
+    "Names":["kalyani","vandana","lalitha","chandana","sweety"],
+    "RollNo":[501,503,504,502,512],
+    "Branch":["cse","ece","eee","civil","mech"],
+    "Section":["A","B","C","B","A"],
+    "Weight":[59,56,53,52,50]
+})
+print("DataFrame is:\n")
+print(d)
+print("\nRollNo as index:\n")
+d1=d.set_index("RollNo")
+print(d1)
+print("\nDefault indices:\n")
+print(d1.reset_index(inplace=False))
+
+output:
+
+DataFrame is:
+
+      Names  RollNo Branch Section  Weight
+0   kalyani     501    cse       A      59
+1   vandana     503    ece       B      56
+2   lalitha     504    eee       C      53
+3  chandana     502  civil       B      52
+4    sweety     512   mech       A      50
+
+RollNo as index:
+
+           Names Branch Section  Weight
+RollNo                                 
+501      kalyani    cse       A      59
+503      vandana    ece       B      56
+504      lalitha    eee       C      53
+502     chandana  civil       B      52
+512       sweety   mech       A      50
+
+Default indices:
+
+   RollNo     Names Branch Section  Weight
+0     501   kalyani    cse       A      59
+1     503   vandana    ece       B      56
+2     504   lalitha    eee       C      53
+3     502  chandana  civil       B      52
+4     512    sweety   mech       A      50
+
+
+#Write a Pandas program to create an index labels by using 64-bit integers, using floating-point numbers in a given dataframe.
+
+import pandas as pd
+d1=pd.DataFrame({
+    "Names":["kalyani","vandana","lalitha","chandana","sweety"],
+    "RollNo":[501,503,504,502,512],
+    "Branch":["cse","ece","eee","civil","mech"],
+    "Section":["A","B","C","B","A"],
+    "Weight":[59,56,53,52,50]
+},index=[1,2,3,4,5])
+print("DataFrame with index labels using 64-bit :\n")
+print(d1)
+print("\nIndex of given dataframe:\n")
+print(d1.index)
+d2=pd.DataFrame({
+    "Names":["kalyani","vandana","lalitha","chandana","sweety"],
+    "RollNo":[501,503,504,502,512],
+    "Branch":["cse","ece","eee","civil","mech"],
+    "Section":["A","B","C","B","A"],
+    "Weight":[59,56,53,52,50]
+},index=[1.1,1.2,1.3,1.4,1.5])
+print("\nDataFrame with index labels using floating-point numbers :\n")
+print(d2)
+print("\nIndex of given dataframe:\n")
+print(d2.index)
+
+output:
+
+DataFrame with index labels using 64-bit :
+
+       Names   RollNo  Branch  Section  Weight
+1     kalyani       501         cse            A      59
+2   vandana      503         ece           B      56
+3        lalitha     504         eee           C      53
+4  chandana    502         civil           B      52
+5    sweety       512      mech       A      50
+
+Index of given dataframe:
+
+Int64Index([1, 2, 3, 4, 5], dtype='int64')
+
+DataFrame with index labels using floating-point numbers :
+
+           Names   RollNo Branch Section  Weight
+1.1     kalyani      501         cse       A          59
+1.2   vandana     503         ece       B          56
+1.3       lalitha     504         eee       C          53
+1.4  chandana    502        civil       B          52
+1.5    sweety     512    mech       A         50
+
+Index of given dataframe:
+
+Float64Index([1.1, 1.2, 1.3, 1.4, 1.5], dtype='float64')
+
