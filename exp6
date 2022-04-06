@@ -1,0 +1,174 @@
+#EXPERIMENT NO 6:PANDAS JOINING AND MERGEING DATAFRAME
+
+i)Write a Pandas program to join the two given dataframes along rows and assign all data.
+AIM:
+Pandas program to join the two given dataframes along rows and assign all data.
+DESCRIPTION:
+pandas.concat() function does all the heavy lifting of performing concatenation operations along with an axis od Pandas objects while performing optional set logic (union or intersection) of the indexes (if any) on the other axes.
+Syntax: concat(objs, axis, join, ignore_index, keys, levels, names, verify_integrity, sort, copy)
+
+PROGRAM:
+import pandas as pd
+data_frame1=pd.DataFrame({
+    "RollNo":[501,503,505,512,515],
+    "Name":["raju","john","sweety","karan","naina"],
+    "Section":['a','b','c','b','a']
+})
+print("First dataframe is:\n")
+print(data_frame1)
+data_frame2=pd.DataFrame({
+    "RollNo":[516,518,520,523,525],
+    "Name":["geetha","ramu","sandy","praveen","meghana"],
+    "Section":['c','b','a','c','b']
+})
+print("\nSecond dataframe is:\n")
+print(data_frame2)
+print("\nJoining the two given dataframes:\n")
+print(pd.concat([data_frame1,data_frame2]))
+
+OUTPUT:
+First dataframe is:
+
+   RollNo    Name Section
+0     501    raju       a
+1     503    john       b
+2     505  sweety       c
+3     512   karan       b
+4     515   naina       a
+
+Second dataframe is:
+
+   RollNo     Name Section
+0     516   geetha       c
+1     518     ramu       b
+2     520    sandy       a
+3     523  praveen       c
+4     525  meghana       b
+
+Joining the two given dataframes:
+
+   RollNo     Name Section
+0     501     raju       a
+1     503     john       b
+2     505   sweety       c
+3     512    karan       b
+4     515    naina       a
+0     516   geetha       c
+1     518     ramu       b
+2     520    sandy       a
+3     523  praveen       c
+4     525  meghana       b
+
+ii)Write a Pandas program to append a list of dictioneries or series to a existing DataFrame and display the combined data. 
+AIM:
+Pandas program to append a list of dictioneries or series to a existing DataFrame and display the combined data.
+DESCRIPTION:
+Pandas dataframe.append() function is used to append rows of other dataframe to the end of the given dataframe, returning a new dataframe object. Columns not in the original dataframes are added as new columns and the new cells are populated with NaN value.
+Syntax: DataFrame.append(other, ignore_index=False, verify_integrity=False, sort=None)
+
+PROGRAM:
+import pandas as pd
+data_frame=pd.DataFrame({
+    "RollNo":[501,503,505,512,515],
+    "Name":["raju","john","sweety","karan","naina"],
+    "Section":['a','b','c','b','a']
+})
+print("Dataframe is:\n")
+print(data_frame)
+ser=pd.Series([517,"geetha",'c'],index=["RollNo","Name","Section"])
+dictionary=[{"RollNo":519,"Name":"rani","Section":'b'},
+           {"RollNo":525,"Name":"candy","Section":'a'}]
+print("\nDictionary:\n")
+print(ser)
+print("\nCombined data:")
+print(data_frame.append(dictionary,ignore_index=True,sort=False))
+
+OUTPUT:
+Dataframe is:
+
+   RollNo    Name Section
+0     501    raju       a
+1     503    john       b
+2     505  sweety       c
+3     512   karan       b
+4     515   naina       a
+
+Dictionary:
+
+RollNo        517
+Name       geetha
+Section         c
+dtype: object
+
+Combined data:
+   RollNo    Name Section
+0     501    raju       a
+1     503    john       b
+2     505  sweety       c
+3     512   karan       b
+4     515   naina       a
+5     519    rani       b
+6     525   candy       a
+
+
+iii)Write a Pandas program to join the two dataframes with matching records from both sides where available.
+AIM:
+Pandas program to join the two dataframes with matching records from both sides where available.
+DESCRIPTION:
+When you want to combine data objects based on one or more keys in a similar way to a relational database, merge() is the tool you need. More specifically, merge() is most useful when you want to combine rows that share data.
+The merge() method updates the content of two DataFrame by merging them together, using the specified method(s).
+Use the parameters to control which values to keep and which to replace.
+Syntax:
+dataframe.merge(right, how, on, left_on, right_on, left_index, right_index, sort, suffixes, copy, indicator, validate)
+
+PROGRAM:
+import pandas as pd
+data_frame1=pd.DataFrame({
+    "RollNo":[501,503,505,512,515],
+    "Name":["raju","john","sweety","karan","naina"],
+    "Section":['a','b','c','b','a']
+})
+print("First dataframe is:\n")
+print(data_frame1)
+data_frame2=pd.DataFrame({
+    "RollNo":[516,518,520,523,525],
+    "Name":["geetha","ramu","sandy","praveen","meghana"],
+    "Section":['c','b','a','c','b']
+})
+print("\nSecond dataframe is:\n")
+print(data_frame2)
+print("\nMerging the two given dataframes:\n")
+print(pd.merge(data_frame1,data_frame2,on="RollNo",how='outer'))
+
+OUTPUT:
+First dataframe is:
+
+   RollNo    Name Section
+0     501    raju       a
+1     503    john       b
+2     505  sweety       c
+3     512   karan       b
+4     515   naina       a
+
+Second dataframe is:
+
+   RollNo     Name Section
+0     516   geetha       c
+1     518     ramu       b
+2     520    sandy       a
+3     523  praveen       c
+4     525  meghana       b
+
+Merging the two given dataframes:
+
+   RollNo  Name_x Section_x   Name_y Section_y
+0     501    raju         a      NaN       NaN
+1     503    john         b      NaN       NaN
+2     505  sweety         c      NaN       NaN
+3     512   karan         b      NaN       NaN
+4     515   naina         a      NaN       NaN
+5     516     NaN       NaN   geetha         c
+6     518     NaN       NaN     ramu         b
+7     520     NaN       NaN    sandy         a
+8     523     NaN       NaN  praveen         c
+9     525     NaN       NaN  meghana         b
