@@ -1,0 +1,24 @@
+	//EXPERIMENT  NO : 7
+//Write a NumPy program to find the number of elements of an array, length of one array element in bytes and total bytes consumed by the elements.
+
+PROGRAM:
+import numpy as np
+arr=np.array([10,12,14,16,18,20],dtype=np.int64)
+print(arr)
+print("Number of elements of an array:")
+print(np.size(arr))
+print(arr.size)
+print("Length of one array element in bytes:")
+print(arr.itemsize)
+print("Total bytes consumed by the elements:")
+print(arr.nbytes)
+
+OUTPUT:
+[10 12 14 16 18 20]
+Number of elements of an array:
+6
+6
+Length of one array element in bytes:
+8
+Total bytes consumed by the elements:
+48
