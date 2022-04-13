@@ -1,0 +1,45 @@
+
+    //EXPERIMENT NO :8
+''''Write a Pandas program to create
+ a)Datetime object for Jan 15 2012. 
+b)Specific date and time of 9:20 pm. 
+c)Local date and time. 
+d)A date without time. 
+e)Current date.
+ f)Time from a datetime.
+ g)Current local time. ''''
+
+
+PROGRAM: 
+import datetime
+from datetime import datetime
+print("Datetime object for Jan 15 2012:")
+print(datetime(2012,1,15))
+print("Specific date and time of 9:20 pm:")
+print(datetime(2011,1,11,21,20))
+print("Local date and time:")
+print(datetime.now())
+print("A date without time:")
+print(datetime.date(datetime(2012,1,15)))
+print("Current date:")
+print(datetime.now().date())
+print("Time from a datetime:")
+print(datetime.time(datetime(2011,2,14,20,20)))
+print("Current local time:")
+print(datetime.now().time())
+
+OUTPUT:
+Datetime object for Jan 15 2012:
+2012-01-15 00:00:00
+Specific date and time of 9:20 pm:
+2011-01-11 21:20:00
+Local date and time:
+2022-04-13 14:27:57.882578
+A date without time:
+2012-01-15
+Current date:
+2022-04-13
+Time from a datetime:
+20:20:00
+Current local time:
+14:27:57.882578
