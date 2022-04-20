@@ -1,0 +1,39 @@
+ 
+				  //EXPERIMENT NO 9
+//i)Write a Pandas program to create a date from a given year, month, day and another date from a given string formats.
+
+PROGRAM:
+import datetime
+from datetime import datetime
+d1=datetime(year=2019,month=7,day=11)
+print("Date from a given year,month,day:",d1)
+from  dateutil  import parser
+d2=parser.parse("18th of march,2003")
+print("Date from a given string formats:",d2)
+
+OUTPUT:
+Date from a given year,month,day: 2019-07-11 00:00:00
+Date from a given string formats: 2003-03-18 00:00:00
+
+//ii)Write a Pandas program to create a time-series with two index labels and random values. Also print the type of the index.
+
+PROGRAM:
+import pandas as pd
+import numpy as np
+import datetime
+from datetime import datetime
+dates=[datetime(2014,1,21),datetime(2015,2,19),datetime(2016,3,24)]
+print('time-series with two index labels and random values:')
+date_series=pd.Series(np.random.randn(),dates)
+print(date_series)
+print("type of the index:")
+print(date_series.index)
+
+OUTPUT:
+time-series with two index labels and random values:
+2014-01-21    0.826447
+2015-02-19    0.826447
+2016-03-24    0.826447
+dtype: float64
+type of the index:
+DatetimeIndex(['2014-01-21', '2015-02-19', '2016-03-24'], dtype='datetime64[ns]', freq=None)
